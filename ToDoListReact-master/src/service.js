@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const apiUrl = "http://localhost:5120"
+const apiUrl = process.env.VARIABLE_NAME;
 
 export default {
   getTasks: async () => {
