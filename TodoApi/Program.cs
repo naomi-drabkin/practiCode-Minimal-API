@@ -1,12 +1,13 @@
 using Microsoft.EntityFrameworkCore;
 using TodoApi;
-
 var builder = WebApplication.CreateBuilder(args);
 
+// הגדרת חיבור למסד נתונים
 builder.Services.AddDbContext<ToDoDbContext>(options =>
     options.UseMySql(builder.Configuration.GetConnectionString("ToDoDB"),
     ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("ToDoDB"))));
 
+// הגדרת CORS
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowSpecificOrigin", policy =>
@@ -17,24 +18,20 @@ builder.Services.AddCors(options =>
     });
 });
 
+// הוסף את Swagger לפני יצירת ה-build של האפליקציה
+builder.Services.AddSwaggerGen();  // הוספת Swagger
+builder.Services.AddEndpointsApiExplorer(); // יוצר את ה-EndPoints עבור Swagger
 
 var app = builder.Build();
+
+// קביעת אם אנחנו בסביבת פיתוח
 app.UseCors("AllowSpecificOrigin");
 
-// if (app.Environment.IsDevelopment())
-// {
-    app.UseSwagger(); // יוצר את המסמכים של Swagger
-    app.UseSwaggerUI();
-    // options => // יוצר את הממשק של Swagger UI
-    // {
-    //     options.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
-    //     options.RoutePrefix = string.Empty; // מציג את Swagger ב-root של האפליקציה
-    // });
-// }
-
-//swagger
-app.UseSwagger();
-app.UseSwaggerUI();
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();  // מפעיל את Swagger
+    app.UseSwaggerUI();  // מפעיל את UI של Swagger
+}
 
 
 app.MapGet("/", () => "Hello World!");

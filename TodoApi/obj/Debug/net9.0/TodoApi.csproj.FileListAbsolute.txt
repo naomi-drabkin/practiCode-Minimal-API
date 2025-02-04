@@ -105,3 +105,6 @@ C:\Users\USER\Pictures\פרקטיקוד פרויקטים\ToDoList פרויקט 3
 C:\Users\USER\Pictures\פרקטיקוד פרויקטים\ToDoList פרויקט 3\TodoApi\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\USER\Pictures\פרקטיקוד פרויקטים\ToDoList פרויקט 3\TodoApi\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\USER\Pictures\פרקטיקוד פרויקטים\ToDoList פרויקט 3\TodoApi\obj\Debug\net9.0\TodoApi.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\USER\Pictures\פרקטיקוד פרויקטים\ToDoList פרויקט 3\TodoApi\bin\Debug\net9.0\package-lock.json
+C:\Users\USER\Pictures\פרקטיקוד פרויקטים\ToDoList פרויקט 3\TodoApi\bin\Debug\net9.0\package.json
+C:\Users\USER\Pictures\פרקטיקוד פרויקטים\ToDoList פרויקט 3\TodoApi\obj\Debug\net9.0\TodoApi.sourcelink.json
