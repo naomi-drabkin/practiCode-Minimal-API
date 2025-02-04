@@ -17,10 +17,24 @@ builder.Services.AddCors(options =>
     });
 });
 
+
 var app = builder.Build();
-
-
 app.UseCors("AllowSpecificOrigin");
+
+// if (app.Environment.IsDevelopment())
+// {
+    app.UseSwagger(); // יוצר את המסמכים של Swagger
+    app.UseSwaggerUI();
+    // options => // יוצר את הממשק של Swagger UI
+    // {
+    //     options.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+    //     options.RoutePrefix = string.Empty; // מציג את Swagger ב-root של האפליקציה
+    // });
+// }
+
+//swagger
+app.UseSwagger();
+app.UseSwaggerUI();
 
 
 app.MapGet("/", () => "Hello World!");
