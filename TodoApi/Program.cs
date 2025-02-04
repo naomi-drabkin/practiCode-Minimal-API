@@ -27,11 +27,11 @@ var app = builder.Build();
 // קביעת אם אנחנו בסביבת פיתוח
 app.UseCors("AllowSpecificOrigin");
 
-if (app.Environment.IsDevelopment())
-{
+// if (app.Environment.IsDevelopment())
+// {
     app.UseSwagger();  // מפעיל את Swagger
     app.UseSwaggerUI();  // מפעיל את UI של Swagger
-}
+// }
 
 
 app.MapGet("/", () => "Hello World!");
