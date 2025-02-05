@@ -6,7 +6,6 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<ToDoDbContext>(options =>
     options.UseMySql(builder.Configuration.GetConnectionString("ToDoDB"),
     ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("ToDoDB"))));
-
 // הגדרת CORS
 builder.Services.AddCors(options =>
 {
@@ -29,8 +28,8 @@ app.UseCors("AllowSpecificOrigin");
 
 // if (app.Environment.IsDevelopment())
 // {
-    app.UseSwagger();  // מפעיל את Swagger
-    app.UseSwaggerUI();  // מפעיל את UI של Swagger
+app.UseSwagger();  // מפעיל את Swagger
+app.UseSwaggerUI();  // מפעיל את UI של Swagger
 // }
 
 
@@ -41,6 +40,7 @@ app.MapGet("/api/items", async (ToDoDbContext dbContext) =>
 {
     var items = await dbContext.Items.ToListAsync();
     return Results.Ok(items);
+   
 });
 
 app.MapPost("/api/items", async (ToDoDbContext dbContext, Item newItem) =>
@@ -48,7 +48,7 @@ app.MapPost("/api/items", async (ToDoDbContext dbContext, Item newItem) =>
     dbContext.Items.Add(newItem);
     await dbContext.SaveChangesAsync();
 
-    return Results.Created($"/api/tasks/{newItem.Id}", newItem);
+    return Results.Created($"/api/items/{newItem.Id}", newItem);
 });
 
 app.MapPut("/api/items/{id}", async (ToDoDbContext dbContext, int id, bool IsComplete) =>
