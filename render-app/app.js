@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 3000;
 const API_KEY = 'rnd_v55BuGfAR7LCHZMJ3eKuGJ0ndTgK';
 
 // הגדרת ה-Endpoint
-app.get('/services', async (req, res) => {
+app.get('/', async (req, res) => {
   try {
     // קריאת ה-Render API כדי לקבל את רשימת השירותים
     const response = await axios.get('https://api.render.com/v1/services', {
