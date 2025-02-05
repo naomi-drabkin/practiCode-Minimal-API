@@ -33,7 +33,7 @@
 import axios from 'axios';
 
 // הגדרת כתובת ה-API כ-default
-const apiUrl = process.env.VARIABLE_NAME; // אם יש לך משתנה סביבה כזה
+const apiUrl = process.env.REACT_APP_VARIABLE_NAME; // אם יש לך משתנה סביבה כזה
 axios.defaults.baseURL = apiUrl;  // נגדיר את baseURL כ-default
 
 // הוספת Interceptor לתפיסת שגיאות ב-Response
@@ -50,7 +50,23 @@ axios.interceptors.response.use(
     return Promise.reject(error);
   }
 );
+/*
+axios.defaults.baseURL =process.env.REACT_APP_API_URL;
 
+
+axios.defaults.headers.post['Content-Type'] = 'application/json';
+
+
+axios.interceptors.response.use(
+    response => response,
+    error => {
+      console.error('API Error:', error.response ? error.response.data : error.message);
+      return Promise.reject(error); 
+    }
+  );
+
+export default axios;
+*/ 
 export default {
   getTasks: async () => {
     const result = await axios.get(`/api/items`);  // לא צריך לכתוב את ה-baseUrl כי הוא כבר הוגדר

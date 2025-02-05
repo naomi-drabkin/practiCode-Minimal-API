@@ -59,3 +59,18 @@ function App() {
 }
 
 export default App;
+
+
+/*
+ addTask: async(name)=>{
+    console.log('addTask', name)
+    //TODO
+    const result = await axios.post(`/`,{
+      Name:name,
+      IsComplete:false
+    })    
+    return {result};
+  },
+
+
+*/ 
