@@ -61,7 +61,7 @@ export default {
     const currentSecond = new Date().getSeconds();
 
     console.log('addTask', name);
-    const result = await axios.post(`/api/items`, {id: currentSecond, name: name, isComplete: false});
+    const result = await axios.post(`/api/items`, {/*id: currentSecond,*/ Name: name, IsComplete: false});
     return result.data;
   },
 
