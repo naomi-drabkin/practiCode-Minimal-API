@@ -2,8 +2,7 @@ import express from 'express';
 import axios from 'axios';
 
 const app = express();
-const PORT = 3000;
-
+const PORT = process.env.PORT || 3000;
 // ה-API Key שלך (שימי כאן את המפתח שלך)
 const API_KEY = 'rnd_v55BuGfAR7LCHZMJ3eKuGJ0ndTgK';
 
